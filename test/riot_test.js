@@ -39,6 +39,12 @@ exports.riot = {
     var expected = grunt.file.read('test/expected/concatFile.js');
     test.equal(cleanCode(actual),cleanCode(expected));
     test.done();
+  },
+  es6: function (test) {
+    var actual = grunt.file.read('test/tmp/babel/es6.js');
+    var expected = grunt.file.read('test/expected/babel/es6.js');
+    test.equal(cleanCode(actual),cleanCode(expected));
+    test.done();
   }
 
 };

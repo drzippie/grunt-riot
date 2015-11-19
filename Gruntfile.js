@@ -47,6 +47,13 @@ module.exports = function (grunt) {
 				},
         src: 'test/fixtures/*.tag',
         dest: 'test/tmp/concatFile.js'
+      },
+      es6: {
+        options: {
+          concat: false,
+        },
+        src: 'test/fixtures/babel/es6.tag',
+        dest: 'test/tmp/babel/es6.js'
       }
     },
 
@@ -61,7 +68,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'riot:compile', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'riot:compile', 'riot:es6', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test', 'clean']);
